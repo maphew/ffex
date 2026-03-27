@@ -1,0 +1,61 @@
+{
+  "manifest_version": 3,
+  "name": "Claude for Firefox",
+  "version": "1.0.0",
+  "description": "Access Claude AI in your Firefox sidebar. Chat with Claude while browsing, send selected text for analysis, and get help with any web page.",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "96": "icons/icon-96.png",
+    "128": "icons/icon-128.png"
+  },
+  "sidebar_action": {
+    "default_title": "Claude",
+    "default_panel": "sidebar/sidebar.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png"
+    },
+    "open_at_install": false
+  },
+  "action": {
+    "default_title": "Toggle Claude Sidebar",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png"
+    }
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "permissions": [
+    "storage",
+    "contextMenus",
+    "activeTab"
+  ],
+  "options_ui": {
+    "page": "settings/settings.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "commands": {
+    "_execute_sidebar_action": {
+      "suggested_key": {
+        "default": "Alt+C"
+      },
+      "description": "Toggle Claude sidebar"
+    }
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "claude-for-firefox@anthropic-community",
+      "strict_min_version": "109.0"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude</title>
+  <link rel="stylesheet" href="sidebar.css">
+</head>
+<body>
+  <div id="loading">
+    <div class="spinner"></div>
+    <p>Loading Claude...</p>
+  </div>
+  <div id="error" class="hidden">
+    <div class="error-icon">!</div>
+    <h2>Unable to load Claude</h2>
+    <p id="error-message">Could not connect to claude.ai</p>
+    <button id="retry-btn">Retry</button>
+    <button id="open-tab-btn" class="secondary">Open in New Tab</button>
+  </div>
+  <iframe id="claude-frame" src="" allow="clipboard-write"></iframe>
+  <div id="toast" class="hidden"></div>
+  <script src="sidebar.js"></script>
+</body>
+</html>
